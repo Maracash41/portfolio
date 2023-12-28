@@ -1,0 +1,179 @@
+@import '../../styles/_reset.scss';
+@import 'mixins';
+@import 'vars';
+
+.header {
+  display: flex;
+  margin-top: 20px;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_mobile {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.menu {
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  &_mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 21vh;
+    z-index: 11;
+    width: 100%;
+    transform: translateX(-50%);
+  }
+
+  &__item {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 60px;
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @include desktop-action-link-btns;
+    color: $Text-Dark;
+
+    @media screen and (max-width: 768px) {
+      @include desktop-action-burger-link;
+    }
+
+  }
+}
+
+.burger {
+  display: none;
+
+  &__overlay {
+    position: absolute;
+    top: 13vh;
+    right: 0;
+    width: 0%;
+    height: 100vh;
+    background-color: $Background-Body;
+    z-index: 10;
+    transition: width 0.4s;
+
+    &_active {
+      width: 100%;;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+}
+
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  border: 1px solid $Border-Dark;
+  cursor: pointer;
+
+  &__line {
+    width: 16px;
+    height: 2px;
+    background-color: $Text-Dark;
+    border-radius: 5px;
+    transition: transform 0.4s;
+
+    &_top {
+      margin-bottom: 8px;
+
+      &_active {
+        margin-bottom: -2px;
+        transform: rotate(45deg);
+      }
+    }
+
+    &_bottom {
+
+      &_active {
+        transform: rotate(-45deg);
+      }
+
+    }
+
+  }
+}
+
+
+.coffee-menu {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  &_mobile {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    bottom: 16vh;
+    z-index: 11;
+    transform: translateX(-50%);
+  }
+
+  &__link {
+    display: flex;
+    @include desktop-action-link-btns;
+    color: $Text-Dark;
+    transition: all 0.3s;
+
+    @media screen and (max-width: 768px) {
+      @include desktop-action-burger-link;
+    }
+  }
+
+  &__text {
+    margin-right: 8px;
+
+    @media screen and (max-width: 768px) {
+      margin-right: 16px;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    background: url("./img/icon-coffee-cup.svg");
+
+    @media screen and (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,114 @@
+@import '../../styles/_reset.scss';
+@import 'mixins';
+@import 'vars';
+
+.text-accent {
+  color: $Text-Accent;
+  font-style: italic;
+}
+
+.about {
+  margin-bottom: 100px;
+}
+
+.about__title {
+  margin-bottom: 40px;
+}
+
+.title {
+  &__text_about {
+    text-align: left;
+  }
+}
+
+.images {
+  display: flex;
+  overflow: hidden;
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: 868px) {
+      flex-basis: 100%;
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 868px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+}
+
+.image-container {
+  margin-bottom: 40px;
+  max-width: 660px;
+  overflow: hidden;
+  border-radius: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__image {
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: all 0.9s;
+    overflow: hidden;
+    transform: scale(1.1);
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.0);
+      }
+    }
+      
+    &_1 {
+
+      height: 590px;
+      background-image: url("./img/image-1.jpeg");
+    }
+
+    &_2 {
+
+      height: 430px;
+      background-image: url("./img/image-2.jpeg");
+    }
+
+    &_3 {
+      height: 430px;
+      background-image: url("./img/image-3.jpeg");
+    }
+
+    &_4 {
+      height:590px;
+      background-image: url("./img/image-4.jpeg");
+    }
+    
+    @media screen and (max-width: 868px) {
+      transform: scale(1.06);
+    }
+
+    @media screen and (max-width: 380px) {
+      transform: scale(1.24);
+    }
+
+  }
+
+  @media screen and (max-width: 868px) {
+    max-width: 100%;
+    &_mob {
+      display: none;
+    }
+  }
+}

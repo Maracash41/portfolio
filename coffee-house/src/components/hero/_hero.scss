@@ -1,0 +1,97 @@
+@import '../../styles/_reset.scss';
+@import 'mixins';
+@import 'vars';
+@import 'buttons';
+
+.hero {
+  margin-bottom: 100px;
+}
+
+.hero-container {
+  position: relative;
+  padding: calc(100% / 1360 * 100) 0 calc(100% / 1360 * 100) calc(100% / 1360 * 100);
+  max-width: 100%;
+  height: 644px;
+  background: url('./img/hero.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 40px;
+  overflow: hidden;
+
+  &__video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 100px calc(100% / 1360 * 98) 100px 60px;
+  }
+
+  @media screen and (max-width: 716px) {
+    padding: 60px calc(100% / 1360 * 16) 60px 16px;
+  }
+
+  @media screen and (max-width: 572px) {
+    padding: 60px calc(100% / 1360 * 16) 60px 16px;
+    height: 552px;
+  }
+
+  @media screen and (max-width: 376px) {
+    padding-top: 16px;
+  }
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 530px;
+  z-index: 10;
+
+  &__slogan {
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 716px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+    @include desktop-body-medium;
+    color: $Text-Light;
+
+    @media screen and (max-width: 616px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media screen and (max-width: 572px) {
+    max-width: 316px;
+  }
+}
+
+.slogan__text {
+  @include desktop-heading-1;
+  color: $Text-Light;
+
+  @media screen and (max-width: 572px) {
+    @include mobile-heading-heading-1;
+  }
+}
+
+.text-accent {
+  color: $Text-Accent;
+  font-style: italic;
+}
+
+
+
+
+

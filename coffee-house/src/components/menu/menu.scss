@@ -1,0 +1,450 @@
+@import '../../styles/_reset.scss';
+@import 'mixins';
+@import 'vars';
+@import 'buttons';
+
+.coffee-menu__link_unactive {
+  position: relative;
+  pointer-events: none;
+
+  &::before {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $Text-Dark;
+    opacity: 1;
+    transition: all 0.3s;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+}
+
+.coffe-menu {
+  margin-bottom: 100px;
+}
+
+.coffee-menu__title {
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.title__text_coffee-menu {
+  text-align: center;
+}
+
+.title_coffee-menu {
+  max-width: 800px;
+}
+
+.price {
+  &__tabs {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 376px) {
+    align-items: flex-start;
+  }
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 8px;
+
+  &__tab {
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 376px) {
+    flex-direction: column;
+  }
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0px 8px;
+  height: 46px;
+  border: 1px solid $Border-Light;
+  border-radius: 100px;
+  transition: all 0.4s;
+  cursor: pointer;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    @include action-link-button;
+    color: $Text-Dark;
+    background-color: $Border-Light;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &_coffee {
+      background-image: url("../../img/icon-coffee.png");
+    }
+
+    &_tea {
+      background-image: url("../../img/icon-tea.png");
+    }
+
+    &_dessert {
+      background-image: url("../../img/icon-dessert.png");
+    }
+
+  }
+
+  &__name {
+    @include action-link-button;
+    color: $Text-Dark;
+    white-space: nowrap;
+  }
+
+  &_active {
+    background-color: $Background-Container;
+  }
+
+  &__icon_active {
+    background-color: $Background-Body;
+  }
+
+  &__name_active{
+    color: $Text-Light;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:active,
+    &_active {
+      background-color: $Background-Container;
+    }
+
+    &:hover > &__icon,
+    &:active > &__icon,
+    &__icon_active {
+      background-color: $Background-Body;
+    }
+
+    &:hover > &__name,
+    &:active > &__name,
+    &__name_active{
+      color: $Text-Light;
+    }
+  }
+
+  @media screen and (max-width: 675px) {
+    margin-right: 8px;
+  }
+
+  @media screen and (max-width: 376px) {
+    margin-bottom: 8px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 310px);
+  justify-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 40px;
+    padding: 0 14px;
+  }
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 310px;
+  height: 506px;
+  border: 1px solid $Border-Light;
+  border-radius: 40px;
+  overflow: hidden;
+
+  &__grid-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 0;
+    padding: 20px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    @include desktop-heading-3;
+    color: $Text-Dark;
+  }
+
+  &__description {
+    margin-bottom: 12px;
+    @include desktop-body-medium;
+    color: $Text-Dark;
+  }
+
+  &__cost {
+    @include desktop-heading-3;
+    color: $Text-Dark;
+  }
+
+  &:hover .picture-container__picture {
+    transform: scale(1.0);
+  }
+
+  @media screen and (max-width: 1080px) {
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 310px;
+    &:nth-child(n+5) {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 675px) {
+  }
+
+  @media screen and (max-width: 376px) {
+    width: 250px;
+  }
+
+  &_active {
+    display: grid !important;
+  }
+
+  &_unactive {
+    display: none;
+  }
+}
+
+.picture-container {
+  max-width: 310px;
+  border-radius: 40px;
+  overflow: hidden;
+
+  &__picture {
+    max-width: 310px;
+    height: 310px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: scale(1.1);
+    transition: transform 0.4s;
+  }
+}
+
+.refresh-button {
+  display: none;
+  width: 60px;
+  height: 60px;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 376px) {
+    align-self: center;
+  }
+}
+
+
+.overlay-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $Background-Backdrop;
+}
+
+.modal {
+  position: relative;
+  padding: 16px;
+  max-width: 800px;
+  border-radius: 40px;
+  background-color: $Background-Body;
+
+  &__container {
+    display: flex;
+
+
+    @media screen and (max-width: 900px) {
+      max-width: 688px;
+    }
+
+    @media screen and (max-width: 650px) {
+      max-width: 342px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+
+    @media screen and (max-width: 650px) {
+
+      &:first-child {
+        display: none;
+      }
+    }
+
+  }
+
+  &__picture-container {
+    max-width: 310px;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+
+  &__picture {
+    max-width: 310px;
+    height: 310px;
+    transform: scale(1.1);
+    transition: transform 0.4s;
+  }
+
+  @media (hover:hover) {
+    &:hover  &__picture {
+      transform: scale(1.0);
+    }
+  }
+
+  &_active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__title {
+    margin-bottom: 12px;
+    @include desktop-heading-3;
+    color: $Text-Dark;
+  }
+
+  &__description {
+    margin-bottom: 20px;
+    @include desktop-body-medium;
+  }
+
+  &__option {
+    margin-bottom: 20px;
+  }
+
+  &__total-price {
+    margin-bottom: 20px;
+  }
+
+  &__warning {
+    margin-bottom: 20px;
+  }
+}
+
+
+.option {
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    margin-bottom: 8px;
+    @include desktop-body-medium;
+  }
+}
+
+.tabs_option {
+  justify-content: flex-start;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+
+  &__heading {
+    @include desktop-heading-3;
+    color: $Text-Dark;
+  }
+
+  &__cost {
+    @include desktop-heading-3;
+    color: $Text-Dark;
+  }
+}
+
+.warning {
+  display: flex;
+  border-top: 1px solid $Border-Light;
+  padding-top: 12px;
+
+  &__icon {
+    flex-shrink: 0;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    background-image: url("../../img/icon-info-empty.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  &__description {
+    @include desktop-body-caption;
+    color: $Text-Dark;
+  }
+}
+
+.modal-content__close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 78px;
+  min-width: 100%;
+  height: 44px;
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid $Border-Dark;
+  @include desktop-action-link-btns;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: $Background-Container;
+    color: $Text-Light;
+  }
+}
