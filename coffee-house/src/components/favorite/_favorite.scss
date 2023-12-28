@@ -1,0 +1,135 @@
+@import '../../styles/_reset.scss';
+@import 'mixins';
+@import 'vars';
+@import 'buttons';
+
+.text-accent {
+  color: $Text-Accent;
+  font-style: italic;
+}
+
+.favorite-coffee {
+  margin-bottom: 100px;
+}
+
+.favorite-coffee__title {
+  margin-bottom: 40px;
+}
+
+.title {
+  &__text_favorite-coffee {
+    @include desktop-heading-2;
+    text-align: center;
+
+    @media screen and (max-width: 380px) {
+      @include mobile-heading-heading-2;
+    }
+  }
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  &__buttons {
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media screen and (max-width: 420px) {
+      display: none;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    max-width: 480px;
+    overflow: hidden;
+
+    @media screen and (max-width: 420px) {
+      justify-content: flex-start;
+      max-width: 380px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: all 0.4s;
+  }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 480px;
+
+
+  &__image {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    @include desktop-heading-3;
+    color: $Text-Dark;
+  }
+
+  &__desk {
+    margin-bottom: 16px;
+    @include desktop-body-medium;
+    text-align: center;
+    color: $Text-Dark;
+  }
+
+  &__cost {
+    @include desktop-heading-3;
+    text-align: center;
+    color: $Text-Dark;
+  }
+
+  @media screen and (max-width: 420px) {
+    width: 380px;
+  }
+}
+
+.slider-controls {
+  display: flex;
+}
+
+.control {
+  display: block;
+  position: relative;
+  margin-right: 12px;
+  width: 40px;
+  height: 4px;
+  background-color: $Border-Light;
+  border-radius: 100px;
+  overflow: hidden;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__background {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 4px;
+    background-color: $Border-Dark;
+  }
+  
+}
+
