@@ -5,7 +5,7 @@
 [Design in Figma](https://www.figma.com/file/ignoOrlkjwztKGWekZy5rK/Coffee-House-(Copy)?type=design&node-id=0%3A1&mode=dev)
 #### Technologies: 
 - HTML
-- CSS(flex, grid)
+- SCSS(flex, grid)
 - JS
 
 #### Features:
