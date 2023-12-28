@@ -8,7 +8,7 @@
 - CSS(flex, grid)
 - JS
 
-#### Feats:
+#### Features:
 - Responsive/adaptive
 - Slider(touchable in mobile version)
 - Modal window with calculation prices
